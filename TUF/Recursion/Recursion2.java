@@ -1,3 +1,5 @@
+package Recursion;
+
 //Finding sum of n numbers using recursion
 public class Recursion2 {
     // Parametarized way

@@ -39,7 +39,7 @@ public class NextGreaterElement {
 
             // if the item is less than the stack top then add stack top to the result and push the item to the
             // stack
-            if (arr[i%arr.length] < st.peek()){
+            if (arr[i] < st.peek()){
                 result[i] = st.peek();
                 st.push(arr[i]);
             }

@@ -35,6 +35,32 @@ public class LL {
         size++;
     }
 
+    public void insertAtLastWithoutTail(int val){  // not done in constant time
+        Node node = new Node(val);
+        Node temp = head;   // created a temp  which starts from head
+        while(temp.next!= null){ // finding last node
+           temp =  temp.next;  // assigning temp to last node
+        }
+        temp.next = node;
+        size++;
+    }
+
+    public void insertAtLast(int val){
+        if (tail == null){
+            insertAtFirst(val);
+            size++;
+            return;
+        }
+
+//        if (tail == null && head == null) { // empty linked list
+//            head = tail = node; // first node
+//        }
+        Node node = new Node(val);
+        tail.next = node; // attaching new node to the ll
+        tail = node; // new node becomes the tail
+        size++;
+    }
+
     public void display(){
         Node temp = head;
         while(temp != null){
@@ -43,6 +69,6 @@ public class LL {
         }
         System.out.println("END");
     }
-
+    //33.32
 
 }

@@ -61,6 +61,36 @@ public class LL {
         size++;
     }
 
+
+    public void insertAtSpecifiedIndex(int index, int value){
+
+        if (index == 0)
+            insertAtFirst(value);
+        else if (index == size) {
+            insertAtLast(value);
+        }
+        else{
+            Node node = new Node(value);
+            Node temp = head;
+            int counter = 0;
+            while (counter != index-1){ // finding the node, which is  just behind the index value
+                counter++;
+                temp = temp.next; // moving the temp until it reaches the index-1
+            }
+            Node tempValue = temp.next;  // storing index-1 th node link to temporary variable
+            temp.next = node;
+            node.next = tempValue; // assigning to the new node
+            size++;
+
+//            Node temp = head;
+//            for (int i = 1; i < index; i++) {
+//                temp = temp.next;
+//
+//            }
+//            Node node = new Node(value, temp.next);
+//            temp.next = node;
+        }
+    }
     public void display(){
         Node temp = head;
         while(temp != null){
@@ -69,6 +99,6 @@ public class LL {
         }
         System.out.println("END");
     }
-    //33.32
+
 
 }

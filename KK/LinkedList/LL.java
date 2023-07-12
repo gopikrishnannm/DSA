@@ -91,6 +91,51 @@ public class LL {
 //            temp.next = node;
         }
     }
+
+    public int deleteFromFirst(){
+        int val = head.value;
+        head = head.next;
+        if (head == null)
+            tail = null;  // if only one node is present
+        size--;
+        return val;
+    }
+
+
+
+
+    public int deleteFromLast(){
+        if (size<=1){
+            return deleteFromFirst();
+        }
+        Node secondLast = getNode(size-2);
+        int value = tail.value;
+        secondLast.next = null;
+        tail = secondLast;    // last element will be removed by garbage collector later on.
+
+        return value;
+    }
+
+    public int deleteFromSpecificIndex(int index){
+        if (size<=1){
+            return deleteFromFirst();
+        }
+        if (index == size-1) {
+            return deleteFromLast();
+        }
+        Node previous = getNode(index-1);
+        int val = previous.next.value;
+        previous.next = previous.next.next;
+        return val;
+    }
+    public Node getNode(int index){
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;   // return reference point to the node index-number
+    }
+    //41:52
     public void display(){
         Node temp = head;
         while(temp != null){

@@ -135,7 +135,17 @@ public class LL {
         }
         return node;   // return reference point to the node index-number
     }
-    //41:52
+
+    public Node findNode(int value){
+        Node node = head;
+        while (node != null){
+            if (node.value == value){
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

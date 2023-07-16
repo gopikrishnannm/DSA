@@ -8,6 +8,6 @@ public class Main {
         ll.insertFirst(20);
         ll.insertAtSpecifiedIndex(2, 30);
         ll.displayInReverse();
-        //1:27:21
+        //1:27
     }
 }

@@ -3,6 +3,8 @@ package LinkedList;
 public class DLL {
 
     Node head;
+
+    int size = 0;
     public class Node{
         int value;
         Node next;
@@ -27,7 +29,7 @@ public class DLL {
             head.prev = node;
         }
         head = node;
-
+        size++;
     }
     public void insertLast(int value){
         Node node = new Node(value);
@@ -43,8 +45,41 @@ public class DLL {
         }
         last.next = node;
         node.prev = last;
+        size++;
     }
 
+    public void insertAtSpecifiedIndex(int index, int value){
+
+        if (index == 0)
+            insertFirst(value);
+        else if (index == size) {
+            insertLast(value);
+        }
+        else{
+            Node node = new Node(value);
+            Node temp = head;
+            int counter = 0;
+            while (counter != index-1){ // finding the node, which is  just behind the index value
+                counter++;
+                temp = temp.next; // moving the temp until it reaches the index-1
+            }
+            Node tempValue = temp.next;  // storing index-1 th node link to temporary variable
+            temp.next = node;
+            node.prev = temp;
+            node.next = tempValue; // assigning to the new node
+            node.next.prev = node;    // node.next is    [old node]-> [new node] <- [node.next.prev]
+            //tempValue.prev = node;
+            size++;
+
+//            Node temp = head;
+//            for (int i = 1; i < index; i++) {
+//                temp = temp.next;
+//
+//            }
+//            Node node = new Node(value, temp.next);
+//            temp.next = node;
+        }
+    }
 
 
     public void display(){

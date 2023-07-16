@@ -5,9 +5,9 @@ public class Main {
         DLL ll = new DLL();
         ll.insertFirst(5);
         ll.insertFirst(10);
-        ll.insertLast(20);
+        ll.insertFirst(20);
+        ll.insertAtSpecifiedIndex(2, 30);
         ll.displayInReverse();
-
-        //1:26
+        //1:27:21
     }
 }

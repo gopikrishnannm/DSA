@@ -81,6 +81,30 @@ public class DLL {
         }
     }
 
+    public void insertAfterValue(int value, int newValue){
+        Node valueNode = getNodeFromValue(value);
+        if (valueNode == null) {
+            System.out.println("doesn't exist");
+            return;
+        }
+        Node node = new Node(newValue);
+        node.next = valueNode.next;
+        node.prev = valueNode;
+        valueNode.next = node;
+        if (node.next != null)
+            node.next.prev = node;
+    }
+
+    public Node getNodeFromValue(int val){
+        Node node = head;
+        while (node!=null){
+            if (node.value == val){
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
 
     public void display(){
         Node node = head;

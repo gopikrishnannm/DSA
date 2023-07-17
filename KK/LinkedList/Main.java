@@ -7,7 +7,10 @@ public class Main {
         ll.insertFirst(10);
         ll.insertFirst(20);
         ll.insertAtSpecifiedIndex(2, 30);
-        ll.displayInReverse();
-        //127
+        ll.display();
+        ll.insertAfterValue(5,15);
+        ll.insertAfterValue(40,100);
+        ll.display();
+        //137
     }
 }

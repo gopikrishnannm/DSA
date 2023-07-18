@@ -2,15 +2,13 @@ package LinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        DLL ll = new DLL();
-        ll.insertFirst(5);
-        ll.insertFirst(10);
-        ll.insertFirst(20);
-        ll.insertAtSpecifiedIndex(2, 30);
+        CLL ll = new CLL();
+        ll.insert(5);
+        ll.insert(10);
+        ll.insert(20);
+        ll.insert(25);
         ll.display();
-        ll.insertAfterValue(5,15);
-        ll.insertAfterValue(40,100);
-        ll.display();
-        //137
+
+        //1:52
     }
 }

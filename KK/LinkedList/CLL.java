@@ -43,6 +43,15 @@ public class CLL {
             return;
         }
 
+        do {
+            Node nextNode = node.next;
+            if (nextNode.value == value){
+                node.next = nextNode.next;
+                break;
+            }
+            node = node.next;
+        }while(node!=head);
+
 
 
     }

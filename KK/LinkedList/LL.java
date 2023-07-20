@@ -92,6 +92,13 @@ public class LL {
         }
     }
 
+
+    // recurison can be 2 - one with void return type  - make the changes in ll
+    //                    - node return type that returns the list node to change the structure
+    public void insertRec(int index, int value){
+
+    }
+
     public int deleteFromFirst(){
         int val = head.value;
         head = head.next;

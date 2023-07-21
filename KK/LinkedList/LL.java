@@ -96,7 +96,23 @@ public class LL {
     // recurison can be 2 - one with void return type  - make the changes in ll
     //                    - node return type that returns the list node to change the structure
     public void insertRec(int index, int value){
+        head = insertRec(index, value, head);
+    }
 
+    // 3 - 5 - 9 -> 7 - 1
+    private Node insertRec(int index, int value, Node node){
+        if (index == 0){
+            Node temp = new Node(value);
+            temp.next = node; // points to current node ie. 1
+            size++;
+            return temp;  // returning 7
+        }
+        //after returning 7, now the current node will be 9 so 9.next is whatever returned
+        // in the previous recursion
+        // then 9 will be returned to 5.next
+        node.next = insertRec(index-1, value, node.next);
+        //finally returning the first node
+        return node;
     }
 
     public int deleteFromFirst(){

@@ -169,6 +169,24 @@ public class LL {
         }
         return null;
     }
+
+
+    // 1 1 2 2 3 3 3
+    public void duplicates(){
+        Node node= head;
+        while(node.next != null){
+            if (node.next.value == node.value){  // checking first one and second second item are
+                // same.
+                node.next = node.next.next; // it is same so first one points to 2.
+                size--;
+            }
+            else {
+                node = node.next;
+            }
+        }
+        tail = node;
+        tail.next = null;
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

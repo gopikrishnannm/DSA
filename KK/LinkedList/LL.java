@@ -187,6 +187,39 @@ public class LL {
         tail = node;
         tail.next = null;
     }
+
+    public static LL merge(LL first, LL second){
+        Node f = first.head;
+        Node s = second.head;
+        LL ans = new LL();
+        while (s!=null && f!=null) {
+            if (f.value > s.value) {
+                ans.insertAtLast(s.value);
+                s = s.next;
+            } else if (s.value > f.value) {
+                ans.insertAtLast(f.value);
+                f = f.next;
+            } else {
+                ans.insertAtLast(f.value);
+                ans.insertAtLast(s.value);
+                s = s.next;
+                f = f.next;
+            }
+        }
+        if (f == null) {
+            while (s!=null){
+                ans.insertAtLast(s.value);
+                s = s.next;
+            }
+        }
+        else{
+            while (f!=null){
+                ans.insertAtLast(f.value);
+                f = f.next;
+            }
+        }
+        return ans;
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

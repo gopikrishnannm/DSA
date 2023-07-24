@@ -220,6 +220,49 @@ public class LL {
         }
         return ans;
     }
+
+    public void makeitCycle(){ // for testing hascycle problem
+        if (head == null){
+            System.out.println("empty");
+            return;
+        }
+        if (head == tail){
+            System.out.println("single item");
+            return;
+        }
+        tail.next = head;
+    }
+
+    public boolean hasCycle(){
+        Node slow = head;
+        Node fast = head;
+        while(fast!= null && fast.next!= null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int countCycleElements(){
+        Node slow = head;
+        Node fast = head;
+        int count = 0;
+        while(fast!= null && fast.next!= null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow){
+                do {
+                    slow = slow.next;
+                    count++;
+                }while (fast != slow);
+            return count;
+            }
+        }
+        return 0;
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

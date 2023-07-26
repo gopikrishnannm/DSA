@@ -263,6 +263,62 @@ public class LL {
         }
         return 0;
     }
+
+
+
+    public int cyclePosition(LL ll){
+        int length = 0;
+        if (hasCycle(ll)){
+            length = countCycleElements(ll);
+        }
+        else {
+            return 0;
+        }
+        Node first = head;
+        Node second = head;
+        while(length>0){
+            second = second.next;
+            length--;
+        }
+        while (first != second){
+            first = first.next;
+            second = second.next;
+        }
+        return first.value;
+    }
+
+
+    public boolean hasCycle(LL ll){
+        Node slow = head;
+        Node fast = head;
+        while(fast!= null && fast.next!= null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int countCycleElements(LL ll){
+        Node slow = head;
+        Node fast = head;
+        int count = 0;
+        while(fast!= null && fast.next!= null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow){
+                do {
+                    slow = slow.next;
+                    count++;
+                }while (fast != slow);
+                return count;
+            }
+        }
+        return 0;
+    }
+
     public void display(){
         Node temp = head;
         while(temp != null){

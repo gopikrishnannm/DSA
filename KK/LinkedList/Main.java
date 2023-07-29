@@ -8,11 +8,12 @@ public class Main {
         ll1.insertAtLast(6);
         ll1.insertAtLast(2);
         ll1.insertAtLast(4);
+        ll1.insertAtLast(10);
         ll1.insertAtLast(5);
-        ll1.makeitCycle();
-        System.out.println(ll1.hasCycle());
-        System.out.println(ll1.countCycleElements());
-        System.out.println(ll1.cyclePosition(ll1));
+        ll1.insertAtLast(1);
+        ll1.display();
+        ll1.reverselLL2(ll1.head);
+        ll1.display();
 
 
 

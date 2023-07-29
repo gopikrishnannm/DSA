@@ -2,7 +2,7 @@ package LinkedList;
 
 public class LL {
 
-    private Node head;
+    public Node head;
     private Node tail;
     private int size;
 
@@ -319,6 +319,63 @@ public class LL {
         return 0;
     }
 
+    public int middleElement(){
+        Node node = head;
+        int length = 0;
+        while(node!=null){
+            node = node.next;
+            length++;
+        }
+        Node node2 = head;
+        length /= 2;
+        while (length > 0){
+            node2 = node2.next;
+            length--;
+        }
+        return node2.value;
+    }
+
+    public int middleElement2(){
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null  ){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.value;
+
+    }
+
+    public void reverseLL(Node node){
+        if (node == tail){
+            head = node;
+            return;
+        }
+        reverseLL(node.next);
+
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+
+    }
+
+    public void reverselLL2(Node node){
+        if (head == null)
+            System.out.println("nothing is there to reverse");
+        Node prev = null;
+        Node present = head;
+        Node next = head.next;
+        while(present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next!=null){
+                next = next.next;
+            }
+        }
+        head = prev;
+
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

@@ -376,6 +376,44 @@ public class LL {
         head = prev;
 
     }
+
+
+    public void reverselLLinBetween(int left, int right){
+        if (left == right){
+            System.out.println("nothing to return");
+        }
+        // to skip first left-1 node
+        Node current = head;
+        Node previous = null;
+        for (int i = 0; current!=null &&i < left-1; i++) {
+            previous = current;
+            current = current.next;
+        }
+
+        Node last = previous;    // at the end we have to connect this with the reversed list
+        Node newEnd = current;  // it will be connected to the other end after the reversal
+
+        // reversal part copied from the top
+
+        Node next = current.next;
+        for (int i = 0; current!=null && i < right-left+1; i++) { // left - right + 1 items has to be reversed
+            current.next = previous;
+            previous = current;
+            current = next;
+            if (next!=null){
+                next = next.next;
+            }
+        }
+        if (last!=null){
+            last.next = previous;
+        }else {
+            head = previous;
+        }
+
+        newEnd.next = current;
+
+
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

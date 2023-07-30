@@ -414,6 +414,58 @@ public class LL {
 
 
     }
+
+    public boolean palindromeCheck(Node node){
+        Node middle = middleElement2(node); // finding the middle element
+        Node secondHalfHead = reverselLL2withReturnType(middle); // reversing from middle
+        Node rereverseHead = secondHalfHead; // storing second half head for re reversing after the
+        // palindrome comparison
+
+        // compare both half
+        while (node != null && secondHalfHead!= null){
+            if (node.value!=secondHalfHead.value)
+                break;
+            node = node.next;
+            secondHalfHead = secondHalfHead.next;
+        }
+
+        reverseLL(rereverseHead); // rereversing to old state of ll
+
+        if (node==null || secondHalfHead == null){
+            return true;
+        }
+        return false;
+
+    }
+
+    public Node reverselLL2withReturnType(Node node){
+        if (head == null)
+            System.out.println("nothing is there to reverse");
+        Node prev = null;
+        Node present = head;
+        Node next = head.next;
+        while(present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next!=null){
+                next = next.next;
+            }
+        }
+        head = prev;
+        return head;
+    }
+
+    public Node middleElement2(Node node){
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null  ){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

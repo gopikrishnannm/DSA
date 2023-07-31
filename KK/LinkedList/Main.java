@@ -8,11 +8,12 @@ public class Main {
         ll1.insertAtLast(1);
         ll1.insertAtLast(2);
         ll1.insertAtLast(3);
-        ll1.insertAtLast(3);
-        ll1.insertAtLast(2);
-        ll1.insertAtLast(1);
+        ll1.insertAtLast(4);
+        ll1.insertAtLast(5);
+        ll1.insertAtLast(6);
+        ll1.insertAtLast(7);
         ll1.display();
-        System.out.println(ll1.palindromeCheck(ll1.head));
+        ll1.reOrder(ll1.head);
         ll1.display();
 
 

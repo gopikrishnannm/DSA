@@ -466,6 +466,35 @@ public class LL {
         return slow;
 
     }
+
+    public void reOrder(Node node){
+        if (node==null || node.next == null){
+            System.out.println("nothing to return");
+            return;
+        }
+        Node midelement = middleElement2(node);
+        Node secondHead = reverselLL2withReturnType(midelement); // second part reversed and first element
+        // of the second reversed part will be the head of second part
+
+        Node firstHead = node;
+
+        //rearrange
+
+        while (firstHead!=null && secondHead!=null){
+            Node temp = firstHead.next;
+            firstHead.next = secondHead;
+            firstHead = temp;
+            temp = secondHead.next;
+            secondHead.next = firstHead;
+            secondHead = temp;
+        }
+
+        if (firstHead!=null){
+            firstHead.next = null;
+        }
+
+
+    }
     public void display(){
         Node temp = head;
         while(temp != null){

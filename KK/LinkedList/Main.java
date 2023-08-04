@@ -10,10 +10,9 @@ public class Main {
         ll1.insertAtLast(3);
         ll1.insertAtLast(4);
         ll1.insertAtLast(5);
-        ll1.insertAtLast(6);
-        ll1.insertAtLast(7);
         ll1.display();
-        ll1.reOrder(ll1.head);
+        //ll1.reverseAlternateKgroup(2, ll1.head);
+        ll1.rotateList(2,ll1.head);
         ll1.display();
 
 

@@ -390,7 +390,7 @@ public class LL {
             current = current.next;
         }
 
-        Node last = previous;    // at the end we have to connect this with the reversed list
+        Node last = previous;   // at the end we have to connect this with the reversed list
         Node newEnd = current;  // it will be connected to the other end after the reversal
 
         // reversal part copied from the top
@@ -438,9 +438,9 @@ public class LL {
 
     }
 
-    public Node reverselLL2withReturnType(Node node){
+    public Node reverselLL2withReturnType(Node head){
         if (head == null)
-            System.out.println("nothing is there to reverse");
+            return head;
         Node prev = null;
         Node present = head;
         Node next = head.next;
@@ -493,6 +493,97 @@ public class LL {
             firstHead.next = null;
         }
 
+
+    }
+
+    public void reverseKGroup(int k, Node node){
+        if(k<=1 || node == null){
+            System.out.println("nothing");
+        }
+        Node current = node;
+        Node prev = null;
+
+        while (true){
+            Node last = prev;
+            Node newEnd = current;
+            Node next = current.next;
+            for (int i = 0; current!=null && i < k; i++) {
+                current.next = prev;
+                prev = current;
+                current = next;
+                if (next!= null){
+                    next = next.next;
+                }
+            }
+            if (last!= null){
+                last.next = prev;
+            }else {
+                head = prev;
+            }
+
+            newEnd.next = current;
+
+            if (current == null){
+                break;
+            }
+
+            prev = newEnd;
+
+        }
+    }
+
+    public void reverseAlternateKgroup(int k, Node node){
+        if(k<=1 || node == null){
+            System.out.println("nothing");
+        }
+        Node current = node;
+        Node prev = null;
+
+        while (current!=null){
+            Node last = prev;
+            Node newEnd = current;
+            Node next = current.next;
+            for (int i = 0; current!=null && i < k; i++) {
+                current.next = prev;
+                prev = current;
+                current = next;
+                if (next!= null){
+                    next = next.next;
+                }
+            }
+            if (last!= null){
+                last.next = prev;
+            }else {
+                head = prev;
+            }
+
+            newEnd.next = current;
+
+
+            prev = newEnd;
+
+            for (int i = 0; current!=null && i < k; i++) {
+                prev = current;
+                current = current.next;
+            }
+
+        }
+    }
+
+    public void rotateList(int k, Node node){
+        while (k>0){
+            Node curr = head;
+            Node prev = null;
+            while (curr.next!=null){
+                prev = curr;
+                curr=curr.next;
+
+            }
+            curr.next = head;
+            head = curr;
+            prev.next = null;
+            k--;
+        }
 
     }
     public void display(){

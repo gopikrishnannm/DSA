@@ -1,0 +1,15 @@
+linear recurrence relation - fibanocci - f(n-1)+f(n-2)
+    give 50 as input - repeated function calls occurs - inefficient
+Divide and conquer recurrence - binary search - O(1) [for comparison] + f(n/2) [for dividing]
+----------------------------------------------------------------
+variables in recursion
+    example - binary search
+    start and end should be passed to next function call in order to reduces the size of the array by half
+    in order to find middle element we have m = s + (e-s)/2 which is required only for this function call
+    ie. doesn't have any effect on next call because we will change start/end to mid+1/mid-1
+
+    function call can be
+    search(int[] arr, int target, int s, int e)
+
+
+    make sure to return a result of a function call of the return type

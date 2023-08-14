@@ -13,3 +13,5 @@ variables in recursion
 
 
     make sure to return a result of a function call of the return type
+
+some times you might need some additional variables in the argument in that case make another function

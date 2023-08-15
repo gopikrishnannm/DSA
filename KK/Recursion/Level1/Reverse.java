@@ -2,8 +2,8 @@ package Recursion.Level1;
 
 public class Reverse {
     public static void main(String[] args) {
-        int ans = rev2(123);
-        System.out.println(ans);
+        int ans = rev2(121);
+        System.out.println(isPalindrome(1211));
     }
     // method 1
     static int rev = 0;
@@ -26,6 +26,9 @@ public class Reverse {
             return 0;
         }
         return (n%10) * (int)(Math.pow(10, d-1)) + helper(n/10, d-1);
+    }
+    static boolean isPalindrome(int n){
+        return n == rev2(n);
     }
 
 

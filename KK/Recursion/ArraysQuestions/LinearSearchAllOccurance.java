@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LinearSearchAllOccurance {
     public static void main(String[] args) {
-        linearSearchAllOccurance2(new int[]{1, 10, 41, 5, 41},4 );
+        linearSearchAllOccurance3(new int[]{1, 10, 41, 5, 41},41 );
     }
     static void linearSearchAllOccurance(int[] arr, int target){
 
@@ -14,6 +14,11 @@ public class LinearSearchAllOccurance {
     static void linearSearchAllOccurance2(int[] arr, int target){
 
         ArrayList<Integer> ans = helper2(arr, target,  0, new ArrayList<>());
+        System.out.println(ans);
+    }
+    static void linearSearchAllOccurance3(int[] arr, int target){
+
+        ArrayList<Integer> ans = helper3(arr, target,  0);
         System.out.println(ans);
     }
     static ArrayList<Integer> list = new ArrayList<>();
@@ -36,5 +41,18 @@ public class LinearSearchAllOccurance {
             // them are pointing to same arrayList object
         }
         return helper2(arr, target, index+1, alist);
+    }
+    private static ArrayList helper3(int[] arr, int target, int index){
+        ArrayList<Integer> list = new ArrayList<>();
+        if (index == arr.length){
+            return list;
+        }
+        // this will contain answer for that function call only
+        if (arr[index] == target){
+            list.add(index);
+        }
+        ArrayList<Integer> ansFromBelowCalls = helper3(arr, target, index+1);
+        list.addAll(ansFromBelowCalls);
+        return list;
     }
 }

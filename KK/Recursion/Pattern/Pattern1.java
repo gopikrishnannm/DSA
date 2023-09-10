@@ -2,8 +2,14 @@ package Recursion.Pattern;
 
 public class Pattern1 {
     public static void main(String[] args) {
-        print(5, 0);
+        print2(2, 0);
     }
+
+//  *****
+//  ****
+//  ***
+//  **
+//  *
     static void print(int r, int c){
         if (r == 0){
             return;
@@ -15,6 +21,27 @@ public class Pattern1 {
         else{
             System.out.println();
             print(r-1, 0);
+        }
+
+    }
+
+//            *
+//            **
+//            ***
+//            ****
+//            *****
+
+    static void print2(int r, int c){
+        if (r == 0){
+            return;
+        }
+        if (c<r){
+            print2(r, c+1);
+            System.out.print("*");
+        }
+        else{
+            print2(r-1, 0);
+            System.out.println();
         }
 
     }

@@ -3,7 +3,7 @@ package Recursion.Subset;
 public class SkipChar {
     public static void main(String[] args) {
         //skip("","ababa", 'a');
-        String ans = skipString("abappleav", "apple");
+        String ans = skipStringNotFull("abapplav", "app", "apple");
         System.out.println(ans);
         System.out.println("a".substring(1));
         System.out.println("a");
@@ -33,15 +33,16 @@ public class SkipChar {
             return ch+skip2(original.substring(1), character);
         }
     }
-    public static String skipString(String original, String skip){
+    public static String skipStringNotFull(String original, String skip, String full){
         if (original.equals("")){
             return "";
         }
-        if (original.startsWith(skip)){
-            return skipString(original.substring(skip.length()-1), skip);
+        // if skip = app, full = apple then skip app only if original does not contain apple at the moment
+        if (original.startsWith(skip) && !original.startsWith(full)){
+            return skipStringNotFull(original.substring(skip.length()-1), skip, full);
         }
         else {
-            return original.charAt(0) + skipString(original.substring(1), skip);
+            return original.charAt(0) + skipStringNotFull(original.substring(1), skip, full);
         }
     }
 }

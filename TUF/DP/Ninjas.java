@@ -3,7 +3,7 @@ package DP;
 public class Ninjas {
     public static void main(String[] args) {
         int[][] task = {{1,2,5},{3,1,1},{3,3,3}};
-        System.out.println(tabulation( task));
+        System.out.println(optimization( task));
     }
     static int recursion(int day, int last, int[][] task){
         if(day==0){
@@ -82,25 +82,26 @@ public class Ninjas {
         }
         return dp[task.length-1][3];
     }
-    static int optimization(int[][] task){
+    static int optimization(int[][] points){
 
         int[] prev = new int[4];
 
-        prev[0] = Math.max(task[0][1], task[0][2]);
-        prev[1] = Math.max(task[0][0], task[0][2]);
-        prev[2] = Math.max(task[0][0], task[0][1]);
-        prev[3] = Math.max(task[0][0], Math.max(task[0][1], task[0][2]));
+        prev[0] = Math.max(points[0][1], points[0][2]);
+        prev[1] = Math.max(points[0][0], points[0][2]);
+        prev[2] = Math.max(points[0][0], points[0][1]);
+        prev[3] = Math.max(points[0][0], Math.max(points[0][1], points[0][2]));
 
-        for (int day = 1; day < task.length; day++) {
+        for (int day = 1; day < points.length; day++) {
             int[] temp = new int[4];
             for (int last = 0; last < 4; last++) {
-                for (int i = 0; i <= 2; i++) {
-                    if (i != last){
-                        temp[last] = Math.max(temp[last], task[day][i] + prev[last]);
+                temp[last] = 0;
+                for (int task = 0; task <= 2; task++) {
+                    if (task != last){
+                        temp[last] = Math.max(temp[last], points[day][task] + prev[task]);
                     }
                 }
-             prev = temp;
             }
+            prev = temp;
         }
         return prev[3];
     }

@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/TUF" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/KK" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/RandomQuestions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/AtoZ" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class ThirdLargest {
     public static void main(String[] args) {
-        threePointer(new Integer[] {1,2,3,4,5});
+        traversing3times(new Integer[] {1,2,3,4, 4,5,1,2});
     }
     static void withSorting(Integer[] arr){
         Arrays.sort(arr, Collections.reverseOrder());

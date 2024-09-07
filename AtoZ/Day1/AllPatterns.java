@@ -2,7 +2,7 @@ package Day1;
 
 public class AllPatterns {
     public static void main(String[] args) {
-        pattern16(3);
+        pattern22(3);
     }
     static void pattern1(int n){
         for (int i = 0; i < n; i++) {
@@ -302,6 +302,159 @@ public class AllPatterns {
             char ch = (char) ('A' + i);
             for(int j=0;j<=i;j++){
                 System.out.print(ch);
+            }
+            System.out.println();
+        }
+    }
+    static void pattern17(int n){
+        /*
+          A  [2,1]
+         ABA [1,3]
+        ABCBA [0,5]
+         */
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n-i-1; j++) {
+                System.out.print(" ");
+            }
+            char ch = 'A';
+            int breakpoint = i;
+            for (int j = 1; j <= 2*i+1; j++) {
+                System.out.print(ch);
+                if (j<=breakpoint) ch++;
+                else ch--;
+            }
+            for (int j = 0; j < n-i-1; j++) {
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+    static void pattern18(int n){
+        /*
+        C
+        B C
+        A B C
+         */
+        for (int i = 1; i <= n; i++) {
+            char ch =(char) ('A' + n -i) ;
+            for (int j = 0; j < i; j++) {
+                System.out.print(ch);
+                ch++;
+            }
+            System.out.println();
+        }
+    }
+    static void pattern19(int n){
+        /*
+         n = 3
+         ******    [3,0,3]
+         **  **    [2,2,2]
+         *    *    [1,4,1]
+         *    *    [1,4,1]
+         **  **    [2,2,2]
+         ******    [3,0,3]
+         */
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n-i ; j++) {
+                System.out.print("*");
+            }
+            for (int j = 0; j < 2 * i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < n-i ; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+
+        }
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            for (int j = 0; j < 2*n - 2 * i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            
+        }
+    }
+    static void pattern20(int n){
+        /*
+           n=3
+            1 *    * [1,4,1]
+            2 **  ** [2,2,2]
+            3 ****** [3,0,3]
+            4 **  ** [2,2,2]
+            5 *    * [1,4,1]
+
+         */
+        int star=0;
+        for (int i = 1; i <= 2 * n ; i++) {
+            if (i > n){
+                star--;
+            }
+            else {
+                star = i;
+            }
+            for (int j = 0; j < star ; j++) {
+                System.out.print("*");
+            }
+            for (int j = 0; j < 2*n - 2*star; j++) {
+                System.out.print(" ");
+            }
+
+            for (int j = 0; j < star ; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    static void pattern21(int n){
+        /*
+
+            0 * * *
+            1 *   *
+            2 * * *
+              0 1 2
+         */
+
+        for(int i=0;i<n;i++){
+
+            // inner loop for printing the stars at borders only.
+            for(int j=0;j<n;j++){
+
+                if(i==0 || j==0 || i==n-1 || j==n-1)
+                    System.out.print("*");
+
+                    // if not border index, print space.
+                else System.out.print(" ");
+            }
+
+            // As soon as the stars for each iteration are printed, we move to the
+            // next row and give a line break otherwise all stars
+            // would get printed in 1 line.
+            System.out.println();
+        }
+
+    }
+    static void pattern22(int n){
+        /*
+        3 3 3 3 3                               0 0 0 0 0
+        3 2 2 2 3    transformed to 3 - value   0 1 1 1 0
+        3 2 1 2 3                               0 1 2 1 0
+        3 2 2 2 3                               0 1 1 1 0
+        3 3 3 3 3                               0 0 0 0 0
+         */
+        for (int i = 0; i < 2*n -1; i++) {
+            for (int j = 0; j < 2*n -1; j++) {
+                int top = i;
+                int left = j;
+                int right = 2 * n - 2 - j;
+                int down = 2 * n -2 - i;
+                System.out.print(Math.min(Math.min(top, left), Math.min(right,down)));
             }
             System.out.println();
         }

@@ -6,7 +6,7 @@ public class TwoSum {
     public static void main(String[] args) {
         int[] arr={2,11,7,15};
         int target = 9;
-        int[] ans = findIndex(arr, target);
+        int[] ans = findIndex2(arr, target);
         System.out.println(Arrays.toString(ans));
     }
     static int[] findIndex(int[] nums, int target){
@@ -22,12 +22,16 @@ public class TwoSum {
         }
         return new int[]{};
     }
-//    static int[] findIndex(int[] nums, int target){
-//        int n = nums.length;
-//        for (int i = 0; i < n; i++) {
-//            for (int j = i+1; j < n; j++) {
-//
-//            }
-//        }
-//    }
+    static int[] findIndex2(int[] nums, int target){
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i+1; j < n; j++) {
+                if (nums[i]+nums[j] == target){
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new int[]{};
+    }
+
 }

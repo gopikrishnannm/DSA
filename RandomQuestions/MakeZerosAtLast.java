@@ -4,7 +4,7 @@ public class MakeZerosAtLast {
 
     public static void main(String[] args) {
 
-        int[] arr = {1,0,25,0,0,10,0};
+        int[] arr = {1,1,0};
         zero2(arr);
     }
     //bubble sort
